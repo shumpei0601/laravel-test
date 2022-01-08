@@ -68,7 +68,7 @@
     <h1>Todo List</h1><br>
     <form action="/todo/create" method="POST">
       @csrf
-      <input type="text"  name="textarea" class="text">
+      <input type="text"  name="content" class="text">
       <input type="submit" class="add" value="追加">
     </form>
     <table>
@@ -81,7 +81,7 @@
       <tr>
         <td></td>
         <td>
-          <input type="text"  name="textarea" class="text">
+          <input type="text"  name="content" class="text">
         </td>
         <form action="/todo/update" method="POST">
           @csrf

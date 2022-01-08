@@ -27,4 +27,28 @@ class AuthorController extends Controller
       DB::table('authors')->insert($param);
       return redirect('/');
     }
+    public function edit()
+    {
+      return view('update', ['form' =>$item]);
+    }
+    public function update(Request $request)
+    {
+      $param = [
+        'id' => $request->id,
+        'content' => $request->content
+      ];
+      DB::table('authors')->where('id', $request->id)->update($param);
+      return redirect('/');
+    }
+    public function delete(Request $request)
+    {
+        $item = DB::table('authors')->where('id', $request->id)->first();
+        return view('delete', ['form' => $item]);
+    }
+    public function remove(Request $request)
+    {
+        $param = ['id' => $request->id];
+        DB::table('authors')->where('id', $request->id)->delete();
+        return redirect('/');
+    }
 }
