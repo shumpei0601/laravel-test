@@ -15,6 +15,7 @@ use App\Http\Controllers\AuthorController;
 */
 
 Route::get('/', [AuthorController::class, 'index']);
+Route::post('/', [AuthorController::class, 'post']);
 Route::prefix('/todo')->group(function () {
     Route::post('/create', [AuthorController::class, 'create']);
     Route::post('/update', [AuthorController::class, 'update']);

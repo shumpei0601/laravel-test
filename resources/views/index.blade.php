@@ -65,6 +65,14 @@
 @section('content')
 <div class="purple">
   <div class="white">
+    <p>{{$txt}}</p>
+    @if (count($errors) > 0)
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  @endif
     <h1>Todo List</h1><br>
     <form action="/todo/create" method="POST">
       @csrf

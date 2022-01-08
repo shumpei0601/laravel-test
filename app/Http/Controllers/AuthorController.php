@@ -51,4 +51,12 @@ class AuthorController extends Controller
         DB::table('authors')->where('id', $request->id)->delete();
         return redirect('/');
     }
+    public function post(Request $request)
+    {
+      $validate_rule = [
+        'content' => 'required'
+      ];
+      $this->validate($request, $validate_rule);
+      return view('index', ['txt' => '正しい入力です']);
+    }
 }
