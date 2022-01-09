@@ -108,8 +108,16 @@
       <tr>
         <td>{{ $items->updated_at }}</td>
         <td>{{ $items->content }}</td>
-        <td></td>
-        <td></td>
+        <form action="/todo/update" method="POST">
+          @csrf
+        <td>
+          <input type="submit" class="update" value="更新">
+        </td>
+        <form action="/todo/delete" method="POST">
+          @csrf
+        <td>
+          <input type="submit" class="delete" value="削除">
+        </td>
       </tr>
       @endforeach
     </table>
