@@ -37,6 +37,7 @@ class AuthorController extends Controller
     }
     public function update(Request $request)
     {
+      //バリテーションの追加
       $param = [
         'id' => $request->id,
         'content' => $request->content
@@ -44,12 +45,13 @@ class AuthorController extends Controller
       DB::table('authors')->where('id', $request->id)->update($param);
       return redirect('/');
     }
-    public function delete(Request $request)
+    public function remove(Request $request)
     {
+      //バリテーション追加？？delete辞めたほうがいいかも？
         $item = DB::table('authors')->where('id', $request->id)->first();
         return view('delete', ['form' => $item]);
     }
-    public function remove(Request $request)
+    public function delete(Request $request)
     {
         $param = ['id' => $request->id];
         DB::table('authors')->where('id', $request->id)->delete();

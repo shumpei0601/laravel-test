@@ -86,40 +86,26 @@
         <th>更新</th>
         <th>削除</th>
       </tr>
-      <tr>
-        <td></td>
-        <td>
-          <input type="text"  name="content" class="text">
-        </td>
-        <form action="/todo/update" method="POST">
-          @csrf
-        <td>
-          <input type="submit" class="update" value="更新">
-        </td>
-        </form>
-        <form action="/todo/delete" method="POST">
-          @csrf
-        <td>
-          <input type="submit" class="delete" value="削除">
-        </td>
-        </form>
-      </tr>
       @foreach ($items as $item)
       <tr>
         <td>{{ $items->updated_at }}</td>
-        <td>{{ $items->content }}</td>
+        <td>
+          <input type="text"  name="content" class="text" value="{{ $items->content }}">
+        </td>
         <form action="/todo/update" method="POST">
           @csrf
         <td>
           <input type="submit" class="update" value="更新">
         </td>
+        </form>
         <form action="/todo/delete" method="POST">
           @csrf
         <td>
           <input type="submit" class="delete" value="削除">
         </td>
+        </form>
       </tr>
-      @endforeach
+       @endforeach
     </table>
   </div>
 </div>
