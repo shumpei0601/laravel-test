@@ -65,7 +65,7 @@
 @section('content')
 <div class="purple">
   <div class="white">
-    <p>{{$txt}}</p>
+    
     @if (count($errors) > 0)
     <ul>
       @foreach ($errors->all() as $error)
@@ -103,6 +103,12 @@
           <input type="submit" class="delete" value="削除">
         </td>
         </form>
+      </tr>
+      <tr>
+        <td>{{ $items->updated_at }}</td>
+        <td>{{ $items->content }}</td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
   </div>

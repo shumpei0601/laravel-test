@@ -10,7 +10,7 @@ class AuthorController extends Controller
 {
     public function index()
     {
-       $items = DB::table('authors')->get();
+       $items = DB::table('authors')->first();
        return view('index', ['items' => $items]);
     }
     
@@ -21,16 +21,15 @@ class AuthorController extends Controller
     }
     public function create(Request $request)
     {
+      $validate_rule = [
+        'content' => 'required'
+      ];
+      $this->validate($request, $validate_rule);
       $param= [
         'content' => $request->content,
       ];
       DB::table('authors')->insert($param);
       return redirect('/');
-      $validate_rule = [
-        'content' => 'required'
-      ];
-      $this->validate($request, $validate_rule);
-      return view('index', ['txt' => '正しい入力です']);
     }
     public function edit()
     {
