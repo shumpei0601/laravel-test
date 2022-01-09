@@ -26,6 +26,11 @@ class AuthorController extends Controller
       ];
       DB::table('authors')->insert($param);
       return redirect('/');
+      $validate_rule = [
+        'content' => 'required'
+      ];
+      $this->validate($request, $validate_rule);
+      return view('index', ['txt' => '正しい入力です']);
     }
     public function edit()
     {
@@ -50,13 +55,5 @@ class AuthorController extends Controller
         $param = ['id' => $request->id];
         DB::table('authors')->where('id', $request->id)->delete();
         return redirect('/');
-    }
-    public function post(Request $request)
-    {
-      $validate_rule = [
-        'content' => 'required'
-      ];
-      $this->validate($request, $validate_rule);
-      return view('index', ['txt' => '正しい入力です']);
     }
 }
