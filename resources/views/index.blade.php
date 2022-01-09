@@ -104,12 +104,14 @@
         </td>
         </form>
       </tr>
+      @foreach ($items as $item)
       <tr>
         <td>{{ $items->updated_at }}</td>
         <td>{{ $items->content }}</td>
         <td></td>
         <td></td>
       </tr>
+      @endforeach
     </table>
   </div>
 </div>
