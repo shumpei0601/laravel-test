@@ -88,9 +88,9 @@
       </tr>
       @foreach ($items as $item)
       <tr>
-        <td>{{ $items->updated_at }}</td>
+        <td>{{ $item->updated_at }}</td>
         <td>
-          <input type="text"  name="content" class="text" value="{{ $items->content }}">
+          <input type="text"  name="content" class="text" value="{{ $item->content }}">
         </td>
         <form action="/todo/update" method="POST">
           @csrf
