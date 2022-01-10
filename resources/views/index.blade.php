@@ -108,6 +108,7 @@
           <input type="submit" class="delete" value="削除">
         </td>
         </form>
+        @endforeach
       </tr>
        @endforeach
     </table>
