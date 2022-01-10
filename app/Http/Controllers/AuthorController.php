@@ -46,7 +46,7 @@ class AuthorController extends Controller
     }
     public function remove(Request $request)
     {
-        $item = DB::table('authors')->where('id', $request->id)->first();
+        $item = DB::table('authors')->where('id', $request->id)->get();
         return view('delete', ['form' => $item]);
     }
     public function delete(Request $request)

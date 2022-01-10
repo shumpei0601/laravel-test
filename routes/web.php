@@ -18,8 +18,8 @@ Route::get('/', [AuthorController::class, 'index']);
 Route::post('/', [AuthorController::class, 'post']);
 Route::prefix('/todo')->group(function () {
     Route::post('/create', [AuthorController::class, 'create']);
-    Route::post('/update', [AuthorController::class, 'update']);
-    Route::post('/delete', [AuthorController::class, 'delete']);
+    Route::post('/{id}/update', [AuthorController::class, 'edit']);
+    Route::post('/{id}/delete', [AuthorController::class, 'remove']);
 });
 Route::post('todo/{id}/update', function () {
 })->name('todo.update');
