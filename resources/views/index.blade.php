@@ -92,13 +92,17 @@
         <td>
           <input type="text"  name="content" class="text" value="{{ $item->content }}">
         </td>
-        <form action="/todo/update" method="POST">
+        $numbers >= 0;
+        @foreach ($items as $item)
+        <form action="{{ route('todo.update', ['id' => $item])}}" method="POST" id={{$item->id}}>
           @csrf
         <td>
           <input type="submit" class="update" value="更新">
         </td>
         </form>
-        <form action="/todo/delete" method="POST">
+        @endforeach
+        @foreach ($items as $item)
+        <form action="{{route('todo.delete', ['id' => $item])}}" method="POST" id={{$item->id}}>
           @csrf
         <td>
           <input type="submit" class="delete" value="削除">

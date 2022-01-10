@@ -21,5 +21,8 @@ Route::prefix('/todo')->group(function () {
     Route::post('/update', [AuthorController::class, 'update']);
     Route::post('/delete', [AuthorController::class, 'delete']);
 });
-
+Route::post('todo/{id}/update', function () {
+})->name('todo.update');
+Route::post('todo/{id}/delete', function () {
+})->name('todo.delete');
 
