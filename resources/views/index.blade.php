@@ -93,25 +93,21 @@
           <input type="text"  name="content" class="text" value="{{ $item->content }}">
         </td>
         @foreach ($items as $item)
-        <form action="/todo/{id}/update" method="POST">
-        <form action="{{ route('todo.update', ['id' => $item->id])}}" method="POST" id={{$item->id}}>
+        <form action="/todo/{id}/update" method="POST" id={{$item->id}}>
           @csrf
           @endforeach
         <td>
           <input type="submit" class="update" value="更新">
         </td>
         </form>
-</form>
         @foreach ($items as $item)
-        <form action="/todo/{id}/delete" method="POST">
-        <form action="{{route('todo.delete', ['id' => $item->id])}}" method="POST" id={{$item->id}}>
+        <form action="/todo/{id}/delete" method="POST" id={{$item->id}}>
           @csrf
           @endforeach
         <td>
           <input type="submit" class="delete" value="削除">
         </td>
         </form>
-</form>
       </tr>
        @endforeach
     </table>
