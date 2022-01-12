@@ -31,10 +31,12 @@ class AuthorController extends Controller
       DB::table('authors')->insert($param);
       return redirect('/');
     }
-    public function edit()
+    public function edit(Request $request)
     {
       
-      return view('update', ['form' =>$item->content]);
+      $item = DB::table('authors')->where('id', $request->id)->get();
+      return view('index', ['item' =>$item]);
+      
     }
     public function update(Request $request)
     {
