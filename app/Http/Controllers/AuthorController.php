@@ -11,7 +11,7 @@ class AuthorController extends Controller
     public function index()
     {
        $items = DB::table('authors')->get();
-       return view('index', ['items' => $items]);
+       return view('index', compact('items'));
     }
     
     public function add()
@@ -33,8 +33,8 @@ class AuthorController extends Controller
     }
     public function edit()
     {
-      dd("Call AuthorConroller edit methods");
-      return view('update', ['form' =>$item]);
+      
+      return view('update', ['form' =>$item->content]);
     }
     public function update(Request $request)
     {
