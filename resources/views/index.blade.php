@@ -93,7 +93,7 @@
           <input type="text"  name="content" class="text" value="{{ $item->content }}">
         </td>
         @foreach ($items as $item)
-        <form action="/todo/{id}/update" method="POST" id={{$item->id}}>
+        <form action="/todo/{$items->id}/update" method="POST" id={{$item->id}}>
           @csrf
           @endforeach
         <td>
@@ -101,7 +101,7 @@
         </td>
         </form>
         @foreach ($items as $item)
-        <form action="/todo/{id}/delete" method="POST" id={{$item->id}}>
+        <form action="/todo/{$items->id}/delete" method="POST" id={{$item->id}}>
           @csrf
           @endforeach
         <td>

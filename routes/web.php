@@ -22,8 +22,8 @@ Route::prefix('/todo')->group(function () {
     Route::post('/{id}/delete', [AuthorController::class, 'remove']);
 });
 
-Route::post('todo/{id}/delete', function () {
-})->name('todo.delete');
+//Route::post('todo/{id}/delete', function () {
+//})->name('todo.delete');
 
 Route::get('/', function (Request $request) {
    return view('index', [AuthorController::class, 'edit']);

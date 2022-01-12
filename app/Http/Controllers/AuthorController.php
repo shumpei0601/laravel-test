@@ -34,17 +34,17 @@ class AuthorController extends Controller
     public function edit(Request $request)
     {
       
-      $item = DB::table('authors')->where('content', $request->input('content'))->get();
+      $item = DB::table('authors')->where('id', $request->id)->get();
       //idからcontentに変更
     
-      return view('index', ['item' =>$item]);
+      return view('index', ['form' =>$item]);
       
     }
     public function update(Request $request)
     {
       $param = [
         'id' => $request->id,
-        'content' => ($request->content)->post()
+        'content' => $request->content
       ];
       DB::table('authors')->where('id', $request->id)->update($param);
       return redirect('/');
