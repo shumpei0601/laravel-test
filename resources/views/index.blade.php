@@ -70,7 +70,7 @@
     <ul>
       @foreach ($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+     @endforeach
     </ul>
   @endif
     <h1>Todo List</h1><br>
@@ -92,18 +92,18 @@
         <td>
           <input type="text"  name="content" class="text" value="{{ $item->content }}">
         </td>
-        @foreach ($items as $item)
+        
         <form action="/todo/{$items->id}/update" method="POST" id={{$item->id}}>
           @csrf
-          @endforeach
+          
         <td>
           <input type="submit" class="update" value="更新">
         </td>
         </form>
-        @foreach ($items as $item)
+        
         <form action="/todo/{$items->id}/delete" method="POST" id={{$item->id}}>
           @csrf
-          @endforeach
+          
         <td>
           <input type="submit" class="delete" value="削除">
         </td>
