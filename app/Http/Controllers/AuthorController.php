@@ -33,6 +33,7 @@ class AuthorController extends Controller
     }
     public function edit()
     {
+      dd("Call AuthorConroller edit methods");
       return view('update', ['form' =>$item]);
     }
     public function update(Request $request)
