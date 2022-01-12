@@ -11,7 +11,7 @@ class Author extends Model
 
     protected $fillable = ['content'];
 
-    public static $rules = array('content' => 'required');
+    public static $rules = array('content' => 'request');
 
     public function getDetail()
     {
