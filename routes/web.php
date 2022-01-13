@@ -15,18 +15,9 @@ use App\Http\Controllers\AuthorController;
 */
 
 Route::get('/', [AuthorController::class, 'index']);
-Route::post('/', [AuthorController::class, 'post']);
 Route::prefix('/todo')->group(function () {
     Route::post('/create', [AuthorController::class, 'create']);
-    Route::post('/{id}/update', [AuthorController::class, 'update']);
+    Route::post('/{id}/update', [AuthorController::class, 'edit']);
     Route::post('/{id}/delete', [AuthorController::class, 'delete']);
-});
-
-
-//Route::post('todo/{id}/delete', function () {
-//})->name('todo.delete');
-
-Route::get('/', function (Request $request) {
-   return view('index', [AuthorController::class, 'edit']);
 });
 

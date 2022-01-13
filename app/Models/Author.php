@@ -8,13 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
-
     protected $fillable = ['content'];
 
-    public static $rules = array('content' => 'request');
-
-    public function getDetail()
+    public function create()
     {
-        $txt = 'ID:'.$this->id . '';
+        Author::create([
+            'content' => $item -> content
+        ]);
     }
+    public function update()
+    {
+        Author::where('content')->update([
+            'content' => $item -> content
+        ]);
+    }
+   
 }
