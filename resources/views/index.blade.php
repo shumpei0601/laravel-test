@@ -93,17 +93,15 @@
           <input type="text"  name="content" class="text" value="{{ $item->content }}">
         </td>
         
-        <form action="/todo/{$items->id}/update" method="POST" id={{$item->id}}>
+        
+        <form action="/todo/{{$item->id}}/update" method="POST" id={{$item->id}}>
           @csrf
-          
         <td>
           <input type="submit" class="update" value="更新">
         </td>
         </form>
-        
-        <form action="/todo/{$items->id}/delete" method="POST" id={{$item->id}}>
+        <form action="/todo/{{$item->id}}/delete" method="POST" id={{$item->id}}>
           @csrf
-          
         <td>
           <input type="submit" class="delete" value="削除">
         </td>

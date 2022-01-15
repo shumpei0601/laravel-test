@@ -22,7 +22,8 @@ class AuthorController extends Controller
     }
     public function edit(Request $request)
     {
-        Author::where('content')->update([
+        
+        Author::where($request->id)->update([
             'content' => $request -> content
         ]);
         return redirect('/');
