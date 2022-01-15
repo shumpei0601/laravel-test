@@ -23,13 +23,15 @@ class AuthorController extends Controller
     public function edit(Request $request)
     {
         dd($request->content);
-        Author::where($request->id)->update([
+        Author::where($request->content)->update([
             'content' => $request -> content
+            //name=content
         ]);
         return redirect('/');
     }
     public function delete(Request $request)
     {
+        dd($request->id);
       Author::find($request->id)->delete();
       return redirect('/');
     }
