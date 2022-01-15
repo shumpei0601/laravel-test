@@ -22,7 +22,7 @@ class AuthorController extends Controller
     }
     public function edit(Request $request)
     {
-        
+        dd($request->content);
         Author::where($request->id)->update([
             'content' => $request -> content
         ]);
